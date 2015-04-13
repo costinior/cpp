@@ -1,9 +1,11 @@
 #pragma once
 
 #include "Empty.h"
+#include "Transform.h"
 
 #include <cstddef>
 #include <type_traits>
+#include <tuple>
 
 template<typename Tup, typename S, typename R>
 struct ReplaceAll

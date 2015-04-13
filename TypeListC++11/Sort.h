@@ -3,6 +3,7 @@
 #include "Empty.h"
 #include "SplitAt.h"
 #include "Append.h"
+#include "TupleSize.h"
 
 #include <cstddef>
 #include <type_traits>
