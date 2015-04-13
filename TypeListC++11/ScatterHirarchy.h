@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Empty.h"
-#include "SpliAt.h"
+#include "SplitAt.h"
 #include "TupleSize.h"
 
 template<typename Tup, template<typename> class Leaf, std::size_t TupSz>
