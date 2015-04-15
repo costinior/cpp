@@ -1,7 +1,7 @@
 #ifndef GENDATA_H
 #define GENDATA_H
 
-#include "ScatterHirarchy.h"
+#include "ScatterHierarchy.h"
 
 enum class ClassMember
 {
