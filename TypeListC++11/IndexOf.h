@@ -1,17 +1,17 @@
-#pragma once
+#ifndef INDEXOF_H
+#define INDEXOF_H
 
 #include "Empty.h"
 
 #include <tuple>
 #include <type_traits>
 
-
 template<typename Tup, typename T, typename CurType, int I>
 struct IndexOfImpl
 {
     using Head = typename std::tuple_element<I-1, Tup>::type;
-    
-    constexpr static int value = std::is_same<T, CurType>::value ? I : 
+
+    constexpr static int value = std::is_same<T, CurType>::value ? I :
                                                                    IndexOfImpl<Tup, T, Head, I-1>::value;
 };
 
@@ -24,14 +24,14 @@ struct IndexOfImpl<Tup, T, CurType, 0>
 template<typename Tup, typename T>
 struct IndexOf
 {
-private:    
+private:
     constexpr static int sz = std::tuple_size<Tup>::value;
-    
+
     using Head = typename std::tuple_element<sz-1, Tup>::type;
-    
+
     static_assert(! std::is_same<T, Empty>::value, "Cannot use Empty class in this context");
-    
-public:    
+
+public:
     constexpr static int value = IndexOfImpl<Tup, T, Head, sz-1>::value;
 };
 
@@ -40,3 +40,5 @@ struct IndexOf<Empty, T>
 {
     constexpr static int value = -1;
 };
+
+#endif

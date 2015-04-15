@@ -1,4 +1,5 @@
-#pragma once
+#ifndef INSERT_H
+#define INSERT_H
 
 #include "Empty.h"
 #include "Append.h"
@@ -10,24 +11,24 @@
 template<typename Tup, typename T, std::size_t I>
 struct Insert
 {
-private:    
+private:
     constexpr static std::size_t sz = std::tuple_size<Tup>::value;
 
     using InternalSplit = SplitAt<Tup,I>;
-    
+
     using Left  = typename std::conditional<I == 0,  T, typename InternalSplit::Left>::type;
     using Right = typename std::conditional<I == sz, T, typename InternalSplit::Right>::type;
-    
+
     using LeftTemp = typename std::conditional
     <
-        I == 0 || I == sz, 
+        I == 0 || I == sz,
         Left,
         typename Append<Left, T>::Result
     >::type;
-    
+
     //static_assert(! std::is_same<T, Empty>::value, "Cannot use Empty class in this context");
-    
-public:    
+
+public:
     using Result = typename Append<LeftTemp, Right>::Result;
 };
 
@@ -36,3 +37,5 @@ struct Insert<Empty, T, 0>
 {
     using Result = typename Append<Empty, T>::Result;
 };
+
+#endif

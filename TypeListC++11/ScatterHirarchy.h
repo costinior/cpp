@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SCATTERHIERARCHY_H
+#define SCATTERHIERARCHY_H
 
 #include "Empty.h"
 #include "SplitAt.h"
@@ -20,3 +21,5 @@ class ScatterHierarchyImpl<Empty, Leaf, 0>
 template<typename Tup, template<typename> class Leaf>
 class ScatterHierarchy : public ScatterHierarchyImpl<Tup, Leaf, TupleSize<Tup>::value>
 {};
+
+#endif
