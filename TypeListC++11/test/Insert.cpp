@@ -3,7 +3,7 @@
 
 #include "TestHelpers.h"
 
-void test()
+void TestInsert()
 {
     using Tup = std::tuple<int,char, double, void*>;
 	using Tup1 = std::tuple<int, char, void, double>;

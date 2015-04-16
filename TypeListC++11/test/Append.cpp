@@ -2,7 +2,7 @@
 #include "Pack.h"
 #include "IndexOf.h"
 
-void test()
+void TestAppend()
 {
     using Tup = std::tuple<int, float, double*, unsigned int, void*>;
 	static_assert(std::is_same<typename Append<Empty,Empty>::Result, Empty>::value, "");

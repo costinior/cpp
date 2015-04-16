@@ -14,7 +14,7 @@ all: $(OBJECTS) $(PROGRAMS)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 $(PROGRAMS):
-	$(CXX) $(LXXDFLAGS) $(OBJECTS) $(SOURCE_OBJECTS) -o $<
+	$(CXX) $(LXXDFLAGS) $(OBJECTS) $(SOURCE_OBJECTS) $<
 
 .PHONY = clean
 

@@ -1,6 +1,6 @@
 #include "IndexOf.h"
 
-void test()
+void TestIndexOf()
 {
 	using Tup = std::tuple<int, float, double*, unsigned int, void*>;;
     

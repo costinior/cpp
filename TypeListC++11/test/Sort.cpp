@@ -18,7 +18,7 @@ template<typename LT, typename RT> struct DescXBinaryPred { constexpr static boo
 template<typename LT, typename RT> struct IsDerivedFromBinaryPred { constexpr static bool value = std::is_base_of<LT, RT>::value; };
 template<typename LT, typename RT> struct IsNotDerivedFromBinaryPred { constexpr static bool value = ! IsDerivedFromBinaryPred<LT, RT>::value; };
 
-void test()
+void TestSort()
 {
 	static_assert(std::is_same<typename Merge<Empty, Empty, AscXBinaryPred>::Result, Empty >::value, "");
 											  

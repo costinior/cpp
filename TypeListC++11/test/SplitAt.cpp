@@ -2,7 +2,7 @@
 
 #include <tuple>
 
-void test()
+void TestSplitAt()
 {
     using Tup1 = std::tuple<int, float, double*, unsigned int, void*>;
 	using Tup2 = std::tuple<char*>;

@@ -4,7 +4,7 @@
 
 #include <tuple>
 
-void test()
+void TestMisc()
 {
     using Tuple_1= std::tuple<int>;
     using Tuple_2= std::tuple<int, char, int*, const int>;

@@ -1,6 +1,6 @@
 #include "TupleSize.h"
 
-void test()
+void TestTupleSize()
 {
     static_assert(TupleSize<Empty>::value == 0, "");
     static_assert(TupleSize<std::tuple<char>>::value == 1, "");

@@ -2,7 +2,7 @@
 
 #include "TestHelpers.h"
 
-void test()
+void TestTransform()
 {
     using Tup = std::tuple<int, float, double*, unsigned int, void*>;
     using Tuple_0 = typename Transform<Tup, MyTranformer>::Result;

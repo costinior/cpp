@@ -2,7 +2,7 @@
 
 #include <tuple>
 
-void test()
+void TestReplace()
 {
     using Tup = std::tuple<int, float, double*, unsigned int, void*>;
     

@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-void test()
+void TestGenData()
 {
     using Tup = std::tuple<int, float, double*, unsigned int, void*>;
     

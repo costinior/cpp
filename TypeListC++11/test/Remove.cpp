@@ -4,7 +4,7 @@
 
 #include <vector>
 
-void test()
+void TestRemove()
 {
    {
         using Tup = std::tuple<char, std::vector<int const *>>;
