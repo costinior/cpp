@@ -2,6 +2,7 @@
 #define GENDATA_H
 
 #include "ScatterHierarchy.h"
+#include "Transform.h"
 
 enum class ClassMember
 {

@@ -1,5 +1,7 @@
 #include "GenData.h"
 
+#include <iostream>
+
 void test()
 {
     using Tup = std::tuple<int, float, double*, unsigned int, void*>;
