@@ -1,7 +1,11 @@
 #include "Replace.h"
 
+#include <tuple>
+
 void test()
 {
+    using Tup = std::tuple<int, float, double*, unsigned int, void*>;
+    
 	//
     static_assert(std::is_same<Empty, typename ReplaceAll<Empty, float, int>::Result>::value, "");
     

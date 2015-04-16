@@ -1,5 +1,9 @@
 #include "Remove.h"
 
+#include "Pack.h"
+
+#include <vector>
+
 void test()
 {
    {
