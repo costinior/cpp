@@ -1,16 +1,6 @@
 #include "Transform.h"
 
-template <typename T>
-class A
-{
-    T m;
-};
-
-template<typename T, std::size_t C>
-struct MyTranformer
-{
-    using type = A<T>;
-};
+#include "TestHelpers.h"
 
 void test()
 {
