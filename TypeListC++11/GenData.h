@@ -1,6 +1,7 @@
-#pragma once
+#ifndef GENDATA_H
+#define GENDATA_H
 
-#include "ScatterHirarchy.h"
+#include "ScatterHierarchy.h"
 
 enum class ClassMember
 {
@@ -17,18 +18,18 @@ class Leaf
 public:
     using T = typename TypeValue::type;
     static constexpr ClassMember classMem = TypeValue::value;
-    
+
     const T& Get() const
     {
         return m;
     }
-    
+
     void Set(const T& val)
     {
         m = val;
     }
-    
-private:    
+
+private:
     T m;
 };
 
@@ -53,18 +54,18 @@ struct Root : public ScatterHierarchy<HirarchyTup, Leaf>
 {
     template<ClassMember M> using ElemAt    = typename std::tuple_element<static_cast<std::size_t>(M), Tup>::type;
     template<ClassMember M> using LocalLeaf = Leaf<TypeValue<ElemAt<M>, M>>;
-    
-    template<ClassMember M> 
+
+    template<ClassMember M>
     auto Get() const -> decltype(std::declval<LocalLeaf<M>>().Get())
     {
         return static_cast<const LocalLeaf<M>*>(this)->Get();
     }
-    
-    template<ClassMember M> 
-    void Set(const ElemAt<M>& val) 
+
+    template<ClassMember M>
+    void Set(const ElemAt<M>& val)
     {
         static_cast<LocalLeaf<M>*>(this)->Set(val);
     }
 };
 
-
+#endif

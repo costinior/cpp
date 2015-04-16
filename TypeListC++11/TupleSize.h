@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TUPLESIZE_H
+#define TUPLESIZE_H
 
 #include "Empty.h"
 
@@ -16,3 +17,5 @@ struct TupleSize<Empty>
 {
     constexpr static std::size_t value = 0;
 };
+
+#endif
