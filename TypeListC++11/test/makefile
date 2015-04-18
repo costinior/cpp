@@ -8,6 +8,7 @@ SOURCE_OBJECTS=$(addprefix ../, $(wildcard *.o) )
 TESTS=$(SOURCES:.cpp=)
 
 all: $(OBJECTS)
+	rm -rf $(OBJDIR)
 
 $(OBJDIR)/%.o: %.cpp | $(OBJDIR)
 	$(CXX) $(CXXFLAGS) $< -o $@
