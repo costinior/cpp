@@ -17,7 +17,7 @@ $(OBJDIR)/%.o: %.cpp | $(OBJDIR)
 .PHONY = $(OBJDIR) $(TESTS)
 
 $(TESTS):
-	$(MAKE) $@.o
+	$(MAKE) -rf $@.o
 
 $(OBJDIR):
 	mkdir -p $@
