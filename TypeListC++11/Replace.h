@@ -1,5 +1,5 @@
-#ifndef REPLACE_H
-#define REPLACE_H
+#ifndef REPLACE_H_20150419
+#define REPLACE_H_20150419
 
 #include "Empty.h"
 #include "Transform.h"

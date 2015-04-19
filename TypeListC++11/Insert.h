@@ -1,5 +1,5 @@
-#ifndef INSERT_H
-#define INSERT_H
+#ifndef INSERT_H_20150419
+#define INSERT_H_20150419
 
 #include "Empty.h"
 #include "Append.h"

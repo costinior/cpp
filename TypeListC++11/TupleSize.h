@@ -1,5 +1,5 @@
-#ifndef TUPLESIZE_H
-#define TUPLESIZE_H
+#ifndef TUPLESIZE_H_20150419
+#define TUPLESIZE_H_20150419
 
 #include "Empty.h"
 

@@ -1,5 +1,5 @@
-#ifndef SPLITAT_H
-#define SPLITAT_H
+#ifndef SPLITAT_H_20150419
+#define SPLITAT_H_20150419
 
 #include "Empty.h"
 #include "Append.h"

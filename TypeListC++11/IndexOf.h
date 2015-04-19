@@ -1,5 +1,5 @@
-#ifndef INDEXOF_H
-#define INDEXOF_H
+#ifndef INDEXOF_H_20150419
+#define INDEXOF_H_20150419
 
 #include "Empty.h"
 
