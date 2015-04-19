@@ -6,7 +6,7 @@ void TestSplitAt()
 {
     using Tup1 = std::tuple<int, float, double*, unsigned int, void*>;
 	using Tup2 = std::tuple<char*>;
-    
+
 	static_assert( std::is_same<typename SplitAt<Empty, 0>::Left,  Empty>::value, "");
 	static_assert( std::is_same<typename SplitAt<Empty, 0>::Right, Empty>::value, "");
 	static_assert( std::is_same<typename SplitAt<Tup2, 0>::Left,  Empty>::value, "");

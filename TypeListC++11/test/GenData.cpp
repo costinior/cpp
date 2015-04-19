@@ -4,8 +4,6 @@
 
 void TestGenData()
 {
-    using Tup = std::tuple<int, float, double*, unsigned int, void*>;
-    
     Root c;
     c.Set<ClassMember::MEMBER_1>(1);
     c.Set<ClassMember::MEMBER_2>(2.3);

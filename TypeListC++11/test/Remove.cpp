@@ -13,8 +13,8 @@ void TestRemove()
         static_assert(std::is_same<typename RemoveAtIndex<Tup,1>::Result, std::tuple<char>>::value, "");
         static_assert(std::is_same<typename RemoveAtIndex<Pack<Tup>,0>::Result, Empty>::value, "");
     }
-    
-    //                            
+
+    //
     {
         using Tup = std::tuple<char, double, float, std::vector<int>, char, char, int>;
         static_assert(std::is_same<typename RemoveAll<Empty, char>::Result, Empty>::value, "");

@@ -1,5 +1,5 @@
-#ifndef SCATTERHIERARCHY_H
-#define SCATTERHIERARCHY_H
+#ifndef SCATTERHIERARCHY_H_20150419
+#define SCATTERHIERARCHY_H_20150419
 
 #include "Empty.h"
 #include "SplitAt.h"

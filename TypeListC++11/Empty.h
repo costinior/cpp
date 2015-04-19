@@ -1,5 +1,5 @@
-#ifndef EMPTY_h
-#define EMPTY_h
+#ifndef EMPTY_H_20150419
+#define EMPTY_H_20150419
 
 struct Empty
 {

@@ -1,5 +1,5 @@
-#ifndef SORT_H
-#define SORT_H
+#ifndef SORT_H_20150419
+#define SORT_H_20150419
 
 #include "Empty.h"
 #include "SplitAt.h"

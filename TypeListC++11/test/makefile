@@ -1,22 +1,23 @@
 CXX=g++
-IDIR=..
+IDIR=../
+OBJDIR=build
 CXXFLAGS=-c -Wall -std=c++11 -I$(IDIR)
-LXXDFLAGS=-std=c++11
 SOURCES=$(wildcard *.cpp)
-OBJECTS=$(SOURCES:.cpp=.o)
+OBJECTS=$(addprefix $(OBJDIR)/, $(SOURCES:.cpp=.o) )
 SOURCE_OBJECTS=$(addprefix ../, $(wildcard *.o) )
-PROGRAMS=$(SOURCES:.cpp=_test)
+TESTS=$(SOURCES:.cpp=)
 
-all: $(OBJECTS) $(PROGRAMS)
-	@echo $(PROGRAMS)
+all: $(OBJECTS)
+	rm -rf $(OBJDIR)
 
-%.o: %.cpp
+$(OBJDIR)/%.o: %.cpp | $(OBJDIR)
 	$(CXX) $(CXXFLAGS) $< -o $@
+	rm $@
 
-$(PROGRAMS):
-	$(CXX) $(LXXDFLAGS) $(OBJECTS) $(SOURCE_OBJECTS) $<
+.PHONY = $(OBJDIR) $(TESTS)
 
-.PHONY = clean
+$(TESTS):
+	$(MAKE) -rf $@.o
 
-clean:
-	rm -f *.o
+$(OBJDIR):
+	mkdir -p $@

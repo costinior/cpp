@@ -1,5 +1,5 @@
-#ifndef MISC_H
-#define MISC_H
+#ifndef MISC_H_20150419
+#define MISC_H_20150419
 
 #include <type_traits>
 

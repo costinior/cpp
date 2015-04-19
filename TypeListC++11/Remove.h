@@ -1,5 +1,5 @@
-#ifndef REMOVE_H
-#define REMOVE_H
+#ifndef REMOVE_H_20150419
+#define REMOVE_H_20150419
 
 #include "Empty.h"
 #include "Append.h"

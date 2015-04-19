@@ -1,19 +1,23 @@
 CXX=g++
+OBJDIR=build
 CXXFLAGS=-c -Wall -std=c++11
 SOURCES=$(wildcard *.h)
-OBJECTS=$(SOURCES:.h=.o)
+OBJECTS=$(addprefix $(OBJDIR)/, $(SOURCES:.h=.o) )
 
 all: $(OBJECTS) tests
 
-%.o: %.h
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+
+$(OBJDIR)/%.o: %.h | $(OBJDIR)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-.PHONY : clean tests
+.PHONY : clean source tests
+
+source: $(OBJECTS)
 
 clean:
-	rm -f *.o
-	$(MAKE) -C test clean
+	rm -rf $(OBJDIR)
 
 tests:
-	@echo Making tests
 	$(MAKE) -C test

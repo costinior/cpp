@@ -1,5 +1,5 @@
-#ifndef APPEND_H
-#define APPEND_H
+#ifndef APPEND_H_20150419
+#define APPEND_H_20150419
 
 #include "Empty.h"
 #include "Misc.h"

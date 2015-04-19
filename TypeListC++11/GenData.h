@@ -1,5 +1,5 @@
-#ifndef GENDATA_H
-#define GENDATA_H
+#ifndef GENDATA_H_20150419
+#define GENDATA_H_20150419
 
 #include "ScatterHierarchy.h"
 #include "Transform.h"
