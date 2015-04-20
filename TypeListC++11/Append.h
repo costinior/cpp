@@ -16,8 +16,13 @@ private:
     using Tup2 = typename MakeTup<T2>::type;
 
 public:
+	//TODO: make this code portable
+
+#if defined(__GNUC__) || defined(__GNUG__)
     using Result = typename std::__tuple_cat_result<Tup1, Tup2>::__type;
-    //using Result = decltype(std::tie(std::declval<Tup1>(), std::declval<Tup2>()));
+#elif defined(_MSC_VER)
+	using Result = typename std::_Tuple_cat1<Tup1, Tup2>::type;
+#endif
 };
 
 template <typename... Args> struct Append<Empty, std::tuple<Args...>> { using Result = std::tuple<Args...>; };
