@@ -18,10 +18,10 @@ void TestAppend()
                                                std::tuple<Tup,Tup>>::value, "");
     static_assert(std::is_same<typename Append<Tup, Tup>::Result,
                                                std::tuple<int, float, double*, unsigned int, void*, int, float, double*, unsigned int, void*>>::value, "");
-    using Tup_1 = typename Append<std::tuple<int>, char>::Result;
+    using Tup_1 = Append<std::tuple<int>, char>::Result;
     static_assert( IndexOf<Tup_1, char>::value == 1, "");
-    using Tup_2 = typename Append<Tup, char>::Result;
+    using Tup_2 = Append<Tup, char>::Result;
     static_assert( IndexOf<Tup_2, char>::value == 5, "");
-    using Tup_3 = typename Append<Tup, Tup_2>::Result;
+    using Tup_3 = Append<Tup, Tup_2>::Result;
     static_assert( std::tuple_size<Tup_3>::value == 11, "");
 }

@@ -5,7 +5,7 @@
 void TestTransform()
 {
     using Tup = std::tuple<int, float, double*, unsigned int, void*>;
-    using Tuple_0 = typename Transform<Tup, MyTranformer>::Result;
+    using Tuple_0 = Transform<Tup, MyTranformer>::Result;
 
     static_assert(std::is_same<Tuple_0, std::tuple<A<int>, A<float>, A<double*>, A<unsigned int>, A<void*>>>::value, "");
     static_assert(std::is_same<typename Transform<Empty, MyTranformer>::Result, Empty>::value, "");

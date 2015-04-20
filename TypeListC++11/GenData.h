@@ -49,7 +49,7 @@ struct HirarchyTranformer
 
 
 using Tup = std::tuple<int, float, double*, unsigned int, void*>;
-using HirarchyTup = typename Transform<Tup, HirarchyTranformer>::Result;
+using HirarchyTup = Transform<Tup, HirarchyTranformer>::Result;
 
 struct Root : public ScatterHierarchy<HirarchyTup, Leaf>
 {
