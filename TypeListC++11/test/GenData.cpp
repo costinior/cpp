@@ -4,7 +4,7 @@
 
 void TestGenData()
 {
-    Root c;
+//    Root c;
     /*c.Set<ClassMember::MEMBER_1>(1);
     c.Set<ClassMember::MEMBER_2>(2.3);
     c.Set<ClassMember::MEMBER_3>(nullptr);
