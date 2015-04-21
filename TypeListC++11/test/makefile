@@ -1,7 +1,7 @@
 CXX=g++
 IDIR=../
 OBJDIR=build
-CXXFLAGS=-c -Wall -std=c++11 -I$(IDIR)
+CXXFLAGS=-c -Wall -Werror -std=c++11 -I$(IDIR)
 SOURCES=$(wildcard *.cpp)
 OBJECTS=$(addprefix $(OBJDIR)/, $(SOURCES:.cpp=.o) )
 SOURCE_OBJECTS=$(addprefix ../, $(wildcard *.o) )
