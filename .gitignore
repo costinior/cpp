@@ -14,3 +14,4 @@ TypeListC++11/VS2013/Debug/VS2013.log
 *.opensdf
 TypeListC++11/VS2013/VS2013.vcxproj.filters
 *.user
+.sconsign.dblite
