@@ -3,6 +3,8 @@
 
 #include <tuple>
 
-template<typename T> using Pack = std::tuple<T>;
-
+namespace tpl
+{
+	template<typename T> using Pack = std::tuple<T>;
+}
 #endif

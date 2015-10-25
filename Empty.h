@@ -1,8 +1,11 @@
 #ifndef EMPTY_H_20150419
 #define EMPTY_H_20150419
 
-struct Empty
+namespace tpl 
 {
-};
+	struct Empty
+	{
+	};
+}
 
 #endif

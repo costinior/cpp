@@ -8,55 +8,57 @@
 #include <type_traits>
 #include <tuple>
 
-template
-<
-    typename Tuple,
-    template<typename T, std::size_t C> class Trans,
-    int N
-> struct TransformImpl;
-
-template<typename T>
-struct IdentityTranformer
+namespace tpl
 {
-    using TransformedType = T;
-};
+	template
+	<
+		typename Tuple,
+		template<typename T, std::size_t C> class Trans,
+		int N
+	> struct TransformImpl;
 
-template <typename Tup, template<typename T, std::size_t C> class BinaryTrans>
-struct TransformImpl<Tup, BinaryTrans, 0>
-{
-    using Type   = typename std::tuple_element<0, Tup>::type;
-    using Head   = typename BinaryTrans<Type,0>::type;
+	template<typename T>
+	struct IdentityTranformer
+	{
+		using TransformedType = T;
+	};
 
-    static_assert(! std::is_same<Type, Empty>::value, "Cannot use Empty class in this context");
-    static_assert(! std::is_same<Head, Empty>::value, "Cannot use Empty class in this context");
+	template <typename Tup, template<typename T, std::size_t C> class BinaryTrans>
+	struct TransformImpl<Tup, BinaryTrans, 0>
+	{
+		using Type   = typename std::tuple_element<0, Tup>::type;
+		using Head   = typename BinaryTrans<Type,0>::type;
 
-    using Result = std::tuple<Head>;
-};
+		static_assert(! std::is_same<Type, Empty>::value, "Cannot use Empty class in this context");
+		static_assert(! std::is_same<Head, Empty>::value, "Cannot use Empty class in this context");
 
-template <typename Tup, template<typename T, std::size_t C> class BinaryTrans, int N>
-struct TransformImpl
-{
-    using Type = typename std::tuple_element<N, Tup>::type;
+		using Result = std::tuple<Head>;
+	};
 
-    using Head = typename TransformImpl<Tup, BinaryTrans, N-1>::Result;
-    using Tail = typename BinaryTrans<Type,N>::type;
+	template <typename Tup, template<typename T, std::size_t C> class BinaryTrans, int N>
+	struct TransformImpl
+	{
+		using Type = typename std::tuple_element<N, Tup>::type;
 
-    static_assert(! std::is_same<Type, Empty>::value, "Cannot use Empty class in this context");
-    static_assert(! std::is_same<Tail, Empty>::value, "Cannot use Empty class in this context");
+		using Head = typename TransformImpl<Tup, BinaryTrans, N-1>::Result;
+		using Tail = typename BinaryTrans<Type,N>::type;
 
-    using Result = typename Append<Head, Tail>::Result;
-};
+		static_assert(! std::is_same<Type, Empty>::value, "Cannot use Empty class in this context");
+		static_assert(! std::is_same<Tail, Empty>::value, "Cannot use Empty class in this context");
 
-template <typename Tup, template<typename T, std::size_t C> class BinaryTrans>
-struct Transform
-{
-    using Result = typename TransformImpl<Tup, BinaryTrans, std::tuple_size<Tup>::value-1>::Result;
-};
+		using Result = typename Append<Head, Tail>::Result;
+	};
 
-template <template<typename T, std::size_t C> class BinaryTrans>
-struct Transform<Empty, BinaryTrans>
-{
-    using Result = Empty;
-};
+	template <typename Tup, template<typename T, std::size_t C> class BinaryTrans>
+	struct Transform
+	{
+		using Result = typename TransformImpl<Tup, BinaryTrans, std::tuple_size<Tup>::value-1>::Result;
+	};
 
+	template <template<typename T, std::size_t C> class BinaryTrans>
+	struct Transform<Empty, BinaryTrans>
+	{
+		using Result = Empty;
+	};
+}
 #endif
