@@ -1,9 +1,12 @@
 #include "Append.h"
+
 #include "Pack.h"
 #include "IndexOf.h"
 
 void TestAppend()
 {
+	using namespace tpl;
+	
     using Tup = std::tuple<int, float, double*, unsigned int, void*>;
 	static_assert(std::is_same<typename Append<Empty,Empty>::Result, Empty>::value, "");
     static_assert(std::is_same<typename Append<Empty,Tup>::Result, Tup>::value, "");

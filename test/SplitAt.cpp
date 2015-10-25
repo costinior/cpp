@@ -4,6 +4,7 @@
 
 void TestSplitAt()
 {
+	using namespace tpl;
     using Tup1 = std::tuple<int, float, double*, unsigned int, void*>;
 	using Tup2 = std::tuple<char*>;
 

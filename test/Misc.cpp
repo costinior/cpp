@@ -6,6 +6,7 @@
 
 void TestMisc()
 {
+	using namespace tpl;
     using Tuple_1= std::tuple<int>;
     using Tuple_2= std::tuple<int, char, int*, const int>;
 

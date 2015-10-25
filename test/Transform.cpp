@@ -4,6 +4,7 @@
 
 void TestTransform()
 {
+	using namespace tpl;
     using Tup = std::tuple<int, float, double*, unsigned int, void*>;
     using Tuple_0 = Transform<Tup, MyTranformer>::Result;
 

@@ -5,6 +5,7 @@
 
 void TestInsert()
 {
+	using namespace tpl;
     using Tup = std::tuple<int,char, double, void*>;
 	using Tup1 = std::tuple<int, char, void, double>;
 	using Tup2 = std::tuple<A<int>, volatile char, const double* const>;

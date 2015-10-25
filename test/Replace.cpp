@@ -4,6 +4,7 @@
 
 void TestReplace()
 {
+	using namespace tpl;
     using Tup = std::tuple<int, float, double*, unsigned int, void*>;
 
 	//

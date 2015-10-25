@@ -2,6 +2,7 @@
 
 void TestIndexOf()
 {
+	using namespace tpl;
 	using Tup = std::tuple<int, float, double*, unsigned int, void*>;;
 
 	static_assert( IndexOf<Empty, int>::value == -1, "");

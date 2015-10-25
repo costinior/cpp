@@ -20,6 +20,7 @@ template<typename LT, typename RT> struct IsNotDerivedFromBinaryPred { constexpr
 
 void TestSort()
 {
+	using namespace tpl;
 	static_assert(std::is_same<typename Merge<Empty, Empty, AscXBinaryPred>::Result, Empty >::value, "");
 
 	static_assert(std::is_same<typename Merge<Empty,

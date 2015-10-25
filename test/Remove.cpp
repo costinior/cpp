@@ -6,6 +6,7 @@
 
 void TestRemove()
 {
+	using namespace tpl;
    {
         using Tup = std::tuple<char, std::vector<int const *>>;
         static_assert(std::is_same<typename RemoveAtIndex<std::tuple<int>,0>::Result, Empty>::value, "");
