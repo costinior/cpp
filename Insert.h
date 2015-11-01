@@ -14,7 +14,7 @@ namespace tpl
 	struct Insert
 	{
 	private:
-		constexpr static std::size_t sz = std::tuple_size<Tup>::value;
+		constexpr static auto sz = std::tuple_size<Tup>::value;
 
 		using InternalSplit = SplitAt<Tup,I>;
 
