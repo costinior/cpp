@@ -8,7 +8,7 @@ void TestReplace()
     using Tup = std::tuple<int, float, double*, unsigned int, void*>;
 
 	//
-    static_assert(std::is_same<Empty, typename ReplaceAll<Empty, float, int>::Result>::value, "");
+    static_assert(std::is_same<Empty, ReplaceAll<Empty, float, int>::Result>::value, "");
 
     using Tuple_1 = ReplaceAll<Tup, float, int>::Result;
     static_assert(std::is_same<Tuple_1, std::tuple<int, int, double*, unsigned int,void*>>::value, "");
