@@ -27,7 +27,7 @@ namespace tpl
 	struct TransformImpl<Tup, BinaryTrans, 0>
 	{
 		using Type   = typename std::tuple_element<0, Tup>::type;
-		using Head   = typename BinaryTrans<Type,0>::type;
+		using Head   = typename BinaryTrans<Type, 0>::type;
 
 		static_assert(! std::is_same<Type, Empty>::value, "Cannot use Empty class in this context");
 		static_assert(! std::is_same<Head, Empty>::value, "Cannot use Empty class in this context");
@@ -41,7 +41,7 @@ namespace tpl
 		using Type = typename std::tuple_element<N, Tup>::type;
 
 		using Head = typename TransformImpl<Tup, BinaryTrans, N-1>::Result;
-		using Tail = typename BinaryTrans<Type,N>::type;
+		using Tail = typename BinaryTrans<Type, N>::type;
 
 		static_assert(! std::is_same<Type, Empty>::value, "Cannot use Empty class in this context");
 		static_assert(! std::is_same<Tail, Empty>::value, "Cannot use Empty class in this context");
