@@ -14,11 +14,11 @@ namespace tpl
 	struct RemoveIfImpl
 	{
 		using Tail = typename std::tuple_element<N, Tup>::type;
-		using Head = typename RemoveIfImpl<Tup, BinaryPred, N-1>::Result;
+		using Head = typename RemoveIfImpl<Tup, BinaryPred, N-1>::result;
 
 		static_assert(! std::is_same<Tail, Empty>::value, "Cannot use Empty class in this context");
 
-		using Result = typename std::conditional
+		using result = typename std::conditional
 		<
 			BinaryPred<Tail,N>::value,
 			Head,
@@ -26,7 +26,7 @@ namespace tpl
 			<
 				std::is_same<Head, std::tuple<Empty>>::value,
 				std::tuple<Tail>,
-				typename Append<Head, Tail>::Result
+				typename Append<Head, Tail>::result
 			>::type
 		>::type;
 	};
@@ -38,7 +38,7 @@ namespace tpl
 
 		static_assert(! std::is_same<Head, Empty>::value, "Cannot use Empty class in this context");
 
-		using Result = typename std::conditional
+		using result = typename std::conditional
 		<
 			BinaryPred<Head,0>::value,
 			std::tuple<Empty>,
@@ -50,9 +50,9 @@ namespace tpl
 	struct RemoveIf
 	{
 	private:
-		using Temp = typename RemoveIfImpl<Tup, BinaryPred, std::tuple_size<Tup>::value-1>::Result;
+		using Temp = typename RemoveIfImpl<Tup, BinaryPred, std::tuple_size<Tup>::value-1>::result;
 	public:
-		using Result = typename std::conditional
+		using result = typename std::conditional
 		<
 			std::is_same<Temp, std::tuple<Empty>>::value,
 			Empty,
@@ -63,7 +63,7 @@ namespace tpl
 	template <template<typename T, std::size_t C> class BinaryPred>
 	struct RemoveIf<Empty, BinaryPred>
 	{
-		using Result = Empty;
+		using result = Empty;
 	};
 
 	///////
@@ -77,7 +77,7 @@ namespace tpl
 	struct RemoveAtIndex
 	{
 		template<typename CurT, std::size_t C> using RemoveAtIndexPredInternal = RemoveAtIndexPred<CurT, C, I>;
-		using Result = typename RemoveIf<Tup, RemoveAtIndexPredInternal>::Result;
+		using result = typename RemoveIf<Tup, RemoveAtIndexPredInternal>::result;
 	};
 
 	///////
@@ -87,7 +87,7 @@ namespace tpl
 		static_assert(! std::is_same<T, Empty>::value, "Cannot use Empty class in this context");
 
 		template<typename CurT, std::size_t C> using Pred = std::is_same<CurT,T>;
-		using Result = typename RemoveIf<Tup, Pred>::Result;
+		using result = typename RemoveIf<Tup, Pred>::result;
 	};
 }
 #endif

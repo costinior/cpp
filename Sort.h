@@ -39,31 +39,31 @@ namespace tpl
 			 RightHead
 		>::type;
 
-		using Return = typename MergeImpl<LeftTail, RightTail, BinaryPred, leftTailSz, rightTailSz>::Result;
+		using Return = typename MergeImpl<LeftTail, RightTail, BinaryPred, leftTailSz, rightTailSz>::result;
 
-		using Result = typename Append
+		using result = typename Append
 		<
 			PartialResult,
 			Return
-		>::Result;
+		>::result;
 	};
 
 	template <typename SortedRightTup, template<typename LeftTupSz, typename RightTupSz> class BinaryPred, std::size_t RI>
 	struct MergeImpl<Empty, SortedRightTup, BinaryPred, 0, RI>
 	{
-		using Result = SortedRightTup;
+		using result = SortedRightTup;
 	};
 
 	template <typename SortedLeftTup, template<typename LeftTupSz, typename RightTupSz> class BinaryPred, std::size_t LI>
 	struct MergeImpl<SortedLeftTup, Empty, BinaryPred, LI, 0>
 	{
-		using Result = SortedLeftTup;
+		using result = SortedLeftTup;
 	};
 
 	template < template<typename LeftTupSz, typename RightTupSz> class BinaryPred>
 	struct MergeImpl<Empty, Empty, BinaryPred, 0, 0>
 	{
-		using Result = Empty;
+		using result = Empty;
 	};
 
 	template <typename SortedLeftTup, typename SortedRightTup, template<typename LeftTupSz, typename RightTupSz> class BinaryPred>
@@ -72,7 +72,7 @@ namespace tpl
 		constexpr static std::size_t leftSz  = TupleSize<SortedLeftTup>::value;
 		constexpr static std::size_t rightSz = TupleSize<SortedRightTup>::value;
 
-		using Result = typename MergeImpl<SortedLeftTup, SortedRightTup, BinaryPred, leftSz, rightSz>::Result;
+		using result = typename MergeImpl<SortedLeftTup, SortedRightTup, BinaryPred, leftSz, rightSz>::result;
 	};
 
 	template <typename Tup, template<typename LT, typename RT> class BinaryPred, std::size_t TupSz>
@@ -89,34 +89,34 @@ namespace tpl
 		constexpr static std::size_t leftSz  = std::tuple_size<Left>::value;
 		constexpr static std::size_t rightSz = std::tuple_size<Right>::value;
 
-		using SortedLeft  = typename MergeSort<Left,  BinaryPred, leftSz>::Result;
-		using SortedRight = typename MergeSort<Right, BinaryPred, rightSz>::Result;
+		using SortedLeft  = typename MergeSort<Left,  BinaryPred, leftSz>::result;
+		using SortedRight = typename MergeSort<Right, BinaryPred, rightSz>::result;
 
-		using Result = typename Merge<SortedLeft, SortedRight, BinaryPred>::Result;
+		using result = typename Merge<SortedLeft, SortedRight, BinaryPred>::result;
 	};
 
 	template <typename Tup, template<typename LT, typename RT> class BinaryPred>
 	struct MergeSort<Tup, BinaryPred, 1>
 	{
-		using Result = Tup;
+		using result = Tup;
 	};
 
 	template <template <typename LT, typename RT> class BinaryPred>
 	struct MergeSort<Empty, BinaryPred, 0>
 	{
-		using Result = Empty;
+		using result = Empty;
 	};
 
 	template <typename Tup, template<typename LT, typename RT> class BinaryPred>
 	struct Sort
 	{
-		using Result = typename MergeSort<Tup, BinaryPred, std::tuple_size<Tup>::value>::Result;
+		using result = typename MergeSort<Tup, BinaryPred, std::tuple_size<Tup>::value>::result;
 	};
 
 	template <template<typename LT, typename RT> class BinaryPred>
 	struct Sort<Empty, BinaryPred>
 	{
-		using Result = Empty;
+		using result = Empty;
 	};
 }
 #endif

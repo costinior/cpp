@@ -20,7 +20,7 @@ namespace tpl
 		static_assert(! std::is_same<R, Empty>::value, "Cannot use Empty class in this context");
 
 	public:
-		using Result = typename Transform<Tup, BinaryTrans>::Result;
+		using result = typename Transform<Tup, BinaryTrans>::result;
 	};
 
 
@@ -35,7 +35,7 @@ namespace tpl
 		static_assert(! std::is_same<R, Empty>::value, "Cannot use Empty class in this context");
 
 	public:
-		using Result = typename Transform<Tup, BinaryTrans>::Result;
+		using result = typename Transform<Tup, BinaryTrans>::result;
 	};
 }
 #endif

@@ -13,19 +13,19 @@ namespace tpl
 	template<typename Tup, std::size_t N, std::size_t Counter>
 	struct SplitAtImpl
 	{
-		using Head = typename SplitAtImpl<Tup, N-1, Counter-1>::Result;
+		using Head = typename SplitAtImpl<Tup, N-1, Counter-1>::result;
 		using Tail = typename std::tuple_element<N, Tup>::type;
 
 		static_assert(! std::is_same<Tail, Empty>::value, "Cannot use Empty class in this context");
 
-		using Result = typename Append<Head, std::tuple<Tail>>::Result;
+		using result = typename Append<Head, std::tuple<Tail>>::result;
 	};
 
 	template<typename Tup, std::size_t N>
 	struct SplitAtImpl<Tup,N,0>
 	{
 		using Head = typename std::tuple_element<N, Tup>::type;
-		using Result = std::tuple<Head>;
+		using result = std::tuple<Head>;
 	};
 
 	template<typename Tup, std::size_t I>
@@ -43,14 +43,14 @@ namespace tpl
 		<
 			I == 0,
 			Empty,
-			typename SplitAtImpl<Tup, leftCounter, leftCounter>::Result
+			typename SplitAtImpl<Tup, leftCounter, leftCounter>::result
 		>::type;
 
 		using Right = typename std::conditional
 		<
 			I == sz,
 			Empty,
-			typename SplitAtImpl<Tup, sz-1, rightCounter>::Result
+			typename SplitAtImpl<Tup, sz-1, rightCounter>::result
 		>::type;
 	};
 

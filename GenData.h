@@ -51,7 +51,7 @@ namespace tpl
 
 
 	using Tup = std::tuple<int, float, double*, unsigned int, void*>;
-	using HirarchyTup = Transform<Tup, HirarchyTranformer>::Result;
+	using HirarchyTup = Transform<Tup, HirarchyTranformer>::result;
 
 	struct Root : public ScatterHierarchy<HirarchyTup, Leaf>
 	{

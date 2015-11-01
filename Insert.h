@@ -14,7 +14,7 @@ namespace tpl
 	struct Insert
 	{
 	private:
-		constexpr static std:size_t sz = std::tuple_size<Tup>::value;
+		constexpr static std::size_t sz = std::tuple_size<Tup>::value;
 
 		using InternalSplit = SplitAt<Tup,I>;
 
@@ -25,19 +25,19 @@ namespace tpl
 		<
 			I == 0 || I == sz,
 			Left,
-			typename Append<Left, T>::Result
+			typename Append<Left, T>::result
 		>::type;
 
 		//static_assert(! std::is_same<T, Empty>::value, "Cannot use Empty class in this context");
 
 	public:
-		using Result = typename Append<LeftTemp, Right>::Result;
+		using result = typename Append<LeftTemp, Right>::result;
 	};
 
 	template<typename T>
 	struct Insert<Empty, T, 0>
 	{
-		using Result = typename Append<Empty, T>::Result;
+		using result = typename Append<Empty, T>::result;
 	};
 }
 #endif

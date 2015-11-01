@@ -20,19 +20,19 @@ namespace tpl
 		//TODO: make this code portable
 
 	#if defined(__GNUC__) || defined(__GNUG__)
-		using Result = typename std::__tuple_cat_result<Tup1, Tup2>::__type;
+		using result = typename std::__tuple_cat_result<Tup1, Tup2>::__type;
 	#elif defined(_MSC_VER)
-		using Result = typename std::_Tuple_cat1<Tup1, Tup2>::type;
+		using result = typename std::_Tuple_cat1<Tup1, Tup2>::type;
 	#endif
 	};
 
-	template <typename... Args> struct Append<Empty, std::tuple<Args...>> { using Result = std::tuple<Args...>; };
-	template <typename... Args> struct Append<std::tuple<Args...>, Empty> { using Result = std::tuple<Args...>; };
+	template <typename... Args> struct Append<Empty, std::tuple<Args...>> { using result = std::tuple<Args...>; };
+	template <typename... Args> struct Append<std::tuple<Args...>, Empty> { using result = std::tuple<Args...>; };
 
-	template <typename T> struct Append<Empty, T> { using Result = std::tuple<T>; };
-	template <typename T> struct Append<T, Empty> { using Result = std::tuple<T>; };
+	template <typename T> struct Append<Empty, T> { using result = std::tuple<T>; };
+	template <typename T> struct Append<T, Empty> { using result = std::tuple<T>; };
 
-	template <> struct Append<Empty, Empty> { using Result = Empty; };
+	template <> struct Append<Empty, Empty> { using result = Empty; };
 }
 
 #endif
